@@ -21,6 +21,10 @@ pipeline {
                 "thirdTask" : {
                     echo "Running on third server"
                     sleep 60
+                },
+                "fourthTask" : {
+                    echo "Running on fourth server"
+                    sleep 60
                 }
                 )
             }
