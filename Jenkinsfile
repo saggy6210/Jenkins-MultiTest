@@ -7,21 +7,23 @@ pipeline {
                 echo 'Building..'
             }
         }
-        stage('Test') {
-            parallel linux:{
-                node ('Linux'){
-                    stage (' Test on Linux') {
-                    echo 'Testing on linux..'
-                    }
+     stage("Parallel") {
+        steps {
+            parallel (
+                "firstTask" : {
+                    echo "Running on first server"
+                    sleep 60
+                },
+                "secondTask" : {
+                    echo "Running on second server"
+                    sleep 60
                 }
-            }, 
-                windows: {
-                    node ('Linux'){
-                        stage (' Test on Linux') {
-                        echo 'Testing on linux..'
-                    }
+                "thirdTask" : {
+                    echo "Running on third server"
+                    sleep 60
                 }
-        }  
+                )
+            }
         }
         stage('Deploy') {
             steps {
