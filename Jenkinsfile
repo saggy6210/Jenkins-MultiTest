@@ -8,9 +8,20 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+            parallel linux:{
+                node ('Linux'){
+                    stage (' Test on Linux') {
+                    echo 'Testing on linux..'
+                    }
+                }
+            }, 
+                windows: {
+                    node ('Linux'){
+                        stage (' Test on Linux') {
+                        echo 'Testing on linux..'
+                    }
+                }
+        }  
         }
         stage('Deploy') {
             steps {
