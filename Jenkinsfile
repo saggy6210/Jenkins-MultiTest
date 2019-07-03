@@ -17,7 +17,7 @@ pipeline {
                 "secondTask" : {
                     echo "Running on second server"
                     sleep 60
-                }
+                },
                 "thirdTask" : {
                     echo "Running on third server"
                     sleep 60
