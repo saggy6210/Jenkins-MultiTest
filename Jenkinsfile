@@ -1,6 +1,6 @@
 pipeline {
     parameters {
-		choice (name: 'env', choices: 'dev\ntest\nprod', description: 'your environment')
+		choice (name: 'envr', choices: 'dev\ntest\nprod', description: 'your environment')
 		string(defaultValue: 'PassProject', description: ' Your SonarQube Project Name', name: 'sonar_project_name')
     }
     agent any
@@ -8,8 +8,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''
-                echo "Building on ${env.env} for ${sonar_project_name}"
+                sh '''#!/bin/bash
+		set +xv
+                echo "Building on ${envr} for ${sonar_project_name}"
                 '''
             }
         }
