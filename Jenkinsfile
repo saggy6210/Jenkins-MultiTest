@@ -1,10 +1,16 @@
 pipeline {
+    parameters {
+		choice (name: 'env', choices: 'dev\ntest\nprod', description: 'your environment')
+		string(defaultValue: 'PassProject', description: ' Your SonarQube Project Name', name: 'sonar_project_name')
+    }
     agent any
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh '''
+                echo "Building on ${env.env} for ${sonar_project_name}"
+                '''
             }
         }
      stage("Parallel") {
@@ -16,14 +22,6 @@ pipeline {
                 },
                 "secondTask" : {
                     echo "Running on second server"
-                    sleep 60
-                },
-                "thirdTask" : {
-                    echo "Running on third server"
-                    sleep 60
-                },
-                "fourthTask" : {
-                    echo "Running on fourth server"
                     sleep 60
                 }
                 )
