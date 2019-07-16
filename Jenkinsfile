@@ -1,6 +1,6 @@
 pipeline {
     parameters {
-		choice (name: 'envt', choices: 'dev\ntest\nprod', description: 'Select  your environment name')
+		choice (name: 'envt', choices: 'dev\ntest\nprod', description: 'Select your environment name')
 		string(defaultValue: 'PassProject', description: ' Your SonarQube Project Name', name: 'sonar_project_name')
     }
     agent any
