@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('WindowsPowerShellTest') {
             steps {
-            powershell '$myname = "Sagar"
-            Write-Output "my name is $myname"'
+            powershell '$myname = "Sagar"'
+            powershell 'Write-Output "my name is $myname"'
             }
         }
 }
