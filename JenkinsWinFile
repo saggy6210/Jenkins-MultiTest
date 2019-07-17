@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages {
+        stage('WindowsPowerShellTest') {
+            steps {
+            powershell '$myname = "Sagar"
+            Write-Output "my name is $myname"'
+            }
+        }
+}
