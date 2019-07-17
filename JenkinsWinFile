@@ -4,7 +4,7 @@ pipeline {
         stage('WindowsPowerShellTest') {
             steps {
             powershell '''
-            $myname = "Sagar"'
+            $myname = 'Sagar'
             Write-Output "my name is $myname"
             '''
             }
