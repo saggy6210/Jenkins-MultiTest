@@ -5,6 +5,7 @@ Prerequisite:
 Install following plugins into Jenkins master.
 Git Plugin 
 pipeline Plugin
+Powershell Plugin
 
 1. Steps to follow:
  Create New Freestyle Job in jenkins -> Build Option -> Select Windows Powershell -> Add Powershell command/Script -> Save & Apply -> Build
